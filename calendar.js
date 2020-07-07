@@ -1,33 +1,20 @@
-var calendar =  document.calendar;
-// var p = MindFusion.Scheduling;
-// visualize the calendar
-// // calendar.render();
-// calendar.theme = "red";
-// calendar.selectionEnd.addEventListener(handleSelection);
-// calendar.headerClick.addEventListener(handleHeaderClick);
+$(document).ready(function(){
+    // var currentDateElement = $('#today-is');
+    var currentDate = moment().format("MMMM, Do, YYYY,h:mm:ss a'");
+    console.log(currentDate);
+    $('#today-is').text(currentDate);
+     $(".saveBtn").click(function(){
+      console.log(this);
+      var newSchedule = $(this).siblings(".textarea").val();
+      var newTime = $(this).parent().attr("id");
+      console.log(newTime);
 
-function handleHeaderClick(sender, args){
-    if(sender.currentView===p.calendarView.TimeTable)
-{
-    sender.date = sender.timetableSettings.dates.items
-    sender.currentView = p.CalendarView.SingleMonth;
-}
-}
-function handleSelection(sender, args){
-
-if(sender.currentView===p.CalendarView.SingleMonth)
-
-args.cancel = true;
-}
-// var start = args.startTime;
-// var end = args.endTime;
-
-// Clear all Dates from the TimeTab
-
-
+     }
+     )})
 // GIVEN I am using a daily planner to create a schedule
 
 // WHEN I open the planner
+// $("btn btn-primary btn-lg").on("")
 
 
 // THEN the current day is displayed at the top of the calendar
