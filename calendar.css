@@ -1,5 +1,21 @@
-/* .body {
+.body {
 background-color:purple;
 
 
-} */
+
+}
+ .jumbotron{
+
+
+    opacity: 85%;
+} 
+
+.container{
+
+    margin: 20px;
+}
+
+.row{
+padding: 15px
+
+}

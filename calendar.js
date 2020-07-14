@@ -1,8 +1,8 @@
 $(document).ready(function(){
     // var currentDateElement = $('#today-is');
     var currentDate = moment().format("MMMM, Do, YYYY,h:mm:ss a");
-    console.log(currentDate);
-    $('#today-is').text(currentDate)
+    // console.log(currentDate);
+    $('.lead').append(currentDate)
      $(".saveBtn").click(function(){
       console.log(this);
       var newSchedule = $(this).textarea(".textarea").val();
@@ -20,7 +20,7 @@ $(document).ready(function(){
 // THEN the current day is displayed at the top of the calendar
 
 
-// WHEN I scroll down
+// WHEN I scroll down.  	    `1
 
 
 // THEN I am presented with timeblocks for standard business hours
@@ -35,8 +35,14 @@ $(document).ready(function(){
 
 
 function timeBlock() {
-    if(currentDate !== "row")
+    if(currentDate < "row")
   document.getElementById("demo").style.color = "red";
+
+  if (currentDate > "row")
+  document.getElementById("demo").style.color = "yellow";
+
+  else (currentDate == "row")
+  document.getElementById("demo").style.color = "green";
 
 
 };
