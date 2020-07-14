@@ -2,7 +2,7 @@ $(document).ready(function(){
     // var currentDateElement = $('#today-is');
     var currentDate = moment().format("MMMM, Do, YYYY,h:mm:ss a");
     // console.log(currentDate);
-    $('.lead').append(currentDate)
+    $('.today-is').append(currentDate)
      $(".saveBtn").click(function(){
       console.log(this);
       var newSchedule = $(this).textarea(".textarea").val();
