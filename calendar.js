@@ -15,19 +15,9 @@
      // console.log(currentDate);
      currentDate = $('.lead').append(currentDate);
      currentHour = $('.today-is').append(currentHour);
- 
- }
- );
- // GIVEN I am using a daily planner to create a schedule
- // WHEN I open the planner
- // $("btn btn-primary btn-lg").on("")
- // THEN the current day is displayed at the top of the calendar
- // WHEN I scroll down.  	    
- // THEN I am presented with timeblocks for standard business hours
- // THEN each timeblock is color coded to indicate whether it is in the past, present, or future
- 
-     // common operation/ (looping over each block to apply particular color)
-     $(".col-md-5 txt-area").each(function() { 
+
+  // common operation/ (looping over each block to apply particular color)
+     $(".col-md-5.txt-area").each(function() { 
         var blockHour = parseInt($(this).attr("id"));
         if (blockHour < currentHour) {
           $(this).addClass("past");
@@ -42,43 +32,38 @@
           $(this).removeClass("present");
           $(this).addClass("future");
         }
-     ;
-    ;
-
-
-
-
-
-
-
-
-     function backgroundColorEdit() {
-         if (hourNow == currentHour) {
-            $('#hour=' + i).addClass('present');
-             document.getElementById("hour-").style.backgroundColor = "#ff0000";
-         } else if (hourNow < currentHour) {
-            $('#hour+' + i).addClass('future');
-             document.getElementById("hour-").style.backgroundColor = "#d3d3d3";
-         } else {
-            $('#hour-' + i).addClass('past');
-             document.getElementById("hour-").style.backgroundColor = "#90ee90";
-         }
+    })
+ }
+ );
+ // GIVEN I am using a daily planner to create a schedule
+ // WHEN I open the planner
+ // $("btn btn-primary btn-lg").on("")
+ // THEN the current day is displayed at the top of the calendar
+ // WHEN I scroll down.  	    
+ // THEN I am presented with timeblocks for standard business hours
+ // THEN each timeblock is color coded to indicate whether it is in the past, present, or future
  
-         $('#hour-' + i).addClass('past');
-         $('#hour+' + i).addClass('future');
-         $('#hour=' + i).addClass('present');
-     };
+    
+
+
+
+
+
+
+
+
 // WHEN I view the timeblocks for that day
 
 
 
  
 // Use window.localStoirage to retreve and store your data object as string
-var LS = JSON.parse(localStorage.scheduler || '{textarea}'); // now an Object
+// var LS = JSON.parse(localStorage.scheduler || '{col-md-5 txt-area}'); // now an Object
 
 // double click makes calender content editable
 
-$(".textData").click(function () {
+$("#set-Schedule").click(function () {
+    console.log(clickbait);
     $(this).addClass('d-none')
     $(this).siblings("input").removeClass("d-none");
 });
@@ -108,7 +93,7 @@ $.ajax({
     $("#btn btn-primary").text(JSON.stringify(response));
   
   });
-}})
+}
 
 
 // WHEN I refresh the page
