@@ -1,54 +1,57 @@
 
-queryURL = "https://momentjs.com"
- var currentTime = ("h:mm:ss a");
 
-var hourPast = hourPast < currentTime;
-var hourNow = currentTime;
-var hourFuture = hourFuture < currentTime; 
+ queryURL = "https://momentjs.com"
+
+ var currentHour = ("h:a");
+ var hourPast = hourPast < currentHour;
+ var hourNow = currentHour;
+ var hourFuture = hourFuture < currentHour;
  
-
-$(document).ready(function(){
-    // var currentDateElement = $('#today-is');
-    var currentDate = moment().format("MMMM, Do, YYYY,h:mm:ss a");
-    var currentTime = moment().format("h:mm:ss a");
-    // console.log(currentDate);
-   currentDate =  $('.lead').append(currentDate);
-  currentTime = $('.textarea').append(currentTime);
-   
-     }
-     );
-// GIVEN I am using a daily planner to create a schedule
-
-// WHEN I open the planner
-// $("btn btn-primary btn-lg").on("")
-
-
-// THEN the current day is displayed at the top of the calendar
-
-
-// WHEN I scroll down.  	    
-
-
-// THEN I am presented with timeblocks for standard business hours
-$('#target').hover(function () {
-  // common operation
-  function backgroundColorEdit(){
-    if (hourNow == currentTime){
-        document.getElementsByClassName("backgroundTool").style.backgroundColor = "#ff0000";
-    }else if (hourNow < currentTime){
-        document.getElementsByClassName("backgroundTool").style.backgroundColor = "#d3d3d3";
-    }else 
-    {
-        document.getElementsByClassName("backgroundTool").style.backgroundColor = "#90ee90";
-    }
-
-
-};
-
+ 
+ $(document).ready(function () {
+     // var currentDateElement = $('#today-is');
+     var currentDate = moment().format("MMMM, Do, YYYY,h:mm:ss a");
+     currentHour = moment().format("h:mm:ss a");
+     // console.log(currentDate);
+     currentDate = $('.lead').append(currentDate);
+     currentHour = $('.textarea').append(currentHour);
+ 
+ }
+ );
+ // GIVEN I am using a daily planner to create a schedule
+ 
+ // WHEN I open the planner
+ // $("btn btn-primary btn-lg").on("")
+ 
+ 
+ // THEN the current day is displayed at the top of the calendar
+ 
+ 
+ // WHEN I scroll down.  	    
+ 
+ 
+ // THEN I am presented with timeblocks for standard business hours
+ 
+// THEN each timeblock is color coded to indicate whether it is in the past, present, or future
+ $('#target').hover(function () {
+     // common operation
+     function backgroundColorEdit() {
+         if (hourNow == currentHour) {
+             document.getElementById("hour-").style.backgroundColor = "#ff0000";
+         } else if (hourNow < currentHour) {
+             document.getElementById("hour-").style.backgroundColor = "#d3d3d3";
+         } else {
+             document.getElementById("hour-").style.backgroundColor = "#90ee90";
+         }
+ 
+         $('#hour-' + i).addClass('past');
+         $('#hour+' + i).addClass('future');
+         $('#hour=' + i).addClass('present');
+     };
 // WHEN I view the timeblocks for that day
 
 
-// THEN each timeblock is color coded to indicate whether it is in the past, present, or future
+
  
 // Use window.localStoirage to retreve and store your data object as string
 var LS = JSON.parse(localStorage.scheduler || '{textarea}'); // now an Object
@@ -69,31 +72,6 @@ $(".btn").click(function () {
 
     var timeInputId = time + "Input"; 
 });
-
-// set active time
-// make background color of / past hours gray / current hour red / future hours green
-var hourPast = hourPast < currentTime;
-var hourNow = currentTime;
-var hourFuture = hourFuture < currentTime;
-
-// if currentTime > hourNow make background color gray//
-    var hourNow = currentTime;
-console.log(hourNow)
-console.log(currentTime)
-    function backgroundColorEdit(){
-        if (hourNow == currentTime){
-            document.getElementsByClassName("backgroundTool").style.backgroundColor = "#ff0000";
-        }else if (hourNow < currentTime){
-            document.getElementsByClassName("backgroundTool").style.backgroundColor = "#d3d3d3";
-        }else 
-        {
-            document.getElementsByClassName("backgroundTool").style.backgroundColor = "#90ee90";
-        }
-}
-
-
-
- 
 
 
 // WHEN I click into a timeblock
