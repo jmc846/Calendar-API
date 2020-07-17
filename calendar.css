@@ -22,3 +22,15 @@ body {
 padding: 15px
 
 }
+#past{
+
+    background-color: red;
+}
+
+#present{
+
+    background-color: grey;
+}
+#future{
+    background-color: green;
+}

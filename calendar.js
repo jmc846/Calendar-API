@@ -6,41 +6,61 @@
  var hourPast = hourPast < currentHour;
  var hourNow = currentHour;
  var hourFuture = hourFuture < currentHour;
- 
+ var blockHour = document.getElementById(blockHour);
  
  $(document).ready(function () {
      // var currentDateElement = $('#today-is');
-     var currentDate = moment().format("MMMM, Do, YYYY,h:mm:ss a");
+     var currentDate = moment().format("MMMM, Do, YYYY,");
      currentHour = moment().format("h:mm:ss a");
      // console.log(currentDate);
      currentDate = $('.lead').append(currentDate);
-     currentHour = $('.textarea').append(currentHour);
+     currentHour = $('.today-is').append(currentHour);
  
  }
  );
  // GIVEN I am using a daily planner to create a schedule
- 
  // WHEN I open the planner
  // $("btn btn-primary btn-lg").on("")
- 
- 
  // THEN the current day is displayed at the top of the calendar
- 
- 
  // WHEN I scroll down.  	    
- 
- 
  // THEN I am presented with timeblocks for standard business hours
+ // THEN each timeblock is color coded to indicate whether it is in the past, present, or future
  
-// THEN each timeblock is color coded to indicate whether it is in the past, present, or future
- $('#target').hover(function () {
-     // common operation
+     // common operation/ (looping over each block to apply particular color)
+     $(".col-md-5 txt-area").each(function() { 
+        var blockHour = parseInt($(this).attr("id"));
+        if (blockHour < currentHour) {
+          $(this).addClass("past");
+       
+        }
+        else if (blockHour === currentHour) {
+          $(this).removeClass("past");
+          $(this).addClass("present");
+        }
+        else {
+          $(this).removeClass("past");
+          $(this).removeClass("present");
+          $(this).addClass("future");
+        }
+     ;
+    ;
+
+
+
+
+
+
+
+
      function backgroundColorEdit() {
          if (hourNow == currentHour) {
+            $('#hour=' + i).addClass('present');
              document.getElementById("hour-").style.backgroundColor = "#ff0000";
          } else if (hourNow < currentHour) {
+            $('#hour+' + i).addClass('future');
              document.getElementById("hour-").style.backgroundColor = "#d3d3d3";
          } else {
+            $('#hour-' + i).addClass('past');
              document.getElementById("hour-").style.backgroundColor = "#90ee90";
          }
  
