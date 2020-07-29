@@ -2,10 +2,10 @@
 
  queryURL = "https://momentjs.com"
 
- var currentHour = ("h:a");
+ var currentHour = ("h");
  var hourPast = hourPast < currentHour;
  var hourNow = currentHour;
- var hourFuture = hourFuture < currentHour;
+ var hourFuture = hourFuture > currentHour;
  var blockHour = document.getElementById(blockHour);
  
  $(document).ready(function () {
@@ -14,20 +14,24 @@
      currentHour = moment().format("h:mm:ss a");
      // console.log(currentDate);
      currentDate = $('.lead').append(currentDate);
-     currentHour = $('.today-is').append(currentHour);
-
+      $('.today-is').append(currentHour);
+     militaryHour = moment().hours()
   // common operation/ (looping over each block to apply particular color)
      $(".col-md-5.txt-area").each(function() { 
         var blockHour = parseInt($(this).attr("id"));
-        if (blockHour < currentHour) {
+        console.log(blockHour)
+        console.log(militaryHour)
+        if (blockHour < militaryHour) {
           $(this).addClass("past");
        
         }
-        else if (blockHour === currentHour) {
+        else if (blockHour === militaryHour) {
+          console.log(blockHour)
+          console.log(militaryHour)
           $(this).removeClass("past");
           $(this).addClass("present");
         }
-        else {
+        else {blockHour > militaryHour
           $(this).removeClass("past");
           $(this).removeClass("present");
           $(this).addClass("future");

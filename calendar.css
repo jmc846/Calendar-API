@@ -19,7 +19,7 @@ body {
 }
 
 .row{
-padding: 15px
+padding: 15px;
 
 }
 .past{
@@ -31,6 +31,6 @@ padding: 15px
 
     background-color: grey;
 }
-.future{
-    background-color:green;
-}
+ .future{
+    background-color: green; 
+} 
